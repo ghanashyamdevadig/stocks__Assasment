@@ -1,0 +1,73 @@
+.stockCard__button{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button{
+    margin: 50px;
+    height:3em;
+    padding: 1em;
+    background:#15d63c;
+    outline: none;
+    border: none;
+    border-radius: 10%;
+    cursor: pointer;
+}
+
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stockCard{
+    background: black;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 1em;
+    color: white;
+    border-radius: 5px;
+    padding: 1em;
+    width: 25%;
+}
+
+.card__item{
+    font-weight: bolder;
+}
+
+.card__details{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.card__open{
+    color: #eddd4c;
+}
+
+.card__volume{
+    color: #5447c9;
+}
+
+.card__high{
+    color: #4df76f;
+}
+
+.card__low{
+    color: #eb0707;
+}
+
+.card__close{
+    color: #db771f;
+}
+
+@media screen and (max-width: 1000px){
+    .stockCard{
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 640px){
+    .stockCard{
+        width: 70%;
+    }
+}
