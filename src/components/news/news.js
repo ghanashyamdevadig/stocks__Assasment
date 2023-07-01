@@ -52,7 +52,7 @@ export default function News() {
             }}
           >
             <img src={item?.banner_image} style={{ height: 100, width: "90%" , borderRadius:10}} alt=""/>
-            <strong style={{margin:15}}>{item?.title.slice(0,90)}</strong>
+            <strong style={{margin:15}}>{item?.title.slice(0,50)}</strong>
           </div>
         );
       })}
