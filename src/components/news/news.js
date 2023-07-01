@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./news.css";
 
 export default function News() {
   const [data, setData] = useState([]);
@@ -20,14 +21,7 @@ export default function News() {
 
   return (
     <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-        flexWrap: "wrap",
-        width: "100%",
-        // background:'red'
-      }}
+      className="news"
     >
         
       {data?.map((item, index) => {
@@ -36,23 +30,10 @@ export default function News() {
           <div key={index} onClick={()=>{
             window.open(`${item.url}}`, "_blank")
            }}
-            style={{
-              display: "flex",
-              flexDirection:"column",
-              justifyContent: "space-between",
-              alignItems: "center",
-              width: "30%",
-              margin: 10,
-              background: "black",
-              padding:10,
-              borderRadius:10,
-              gap:10,
-              textAlign:"left",
-              height:"15em",
-            }}
+            className="news__div"
           >
-            <img src={item?.banner_image} style={{ height: 100, width: "90%" , borderRadius:10}} alt=""/>
-            <strong style={{margin:15}}>{item?.title.slice(0,50)}</strong>
+            <img src={item?.banner_image}  alt="" className="news__image"/>
+            <strong style={{margin:15}}>{item?.title.slice(0,50)}...</strong>
           </div>
         );
       })}

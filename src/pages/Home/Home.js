@@ -7,6 +7,7 @@ import Header from "../../components/header/Header";
 import Cart from "../../assets/shopping.png";
 import { useNavigate } from "react-router-dom";
 import News from "../../components/news/news";
+import { loadHandler } from "../../redux/slices/stocks";
 
 
 export default function Home() {
@@ -55,8 +56,10 @@ export default function Home() {
       <div className="display__items">
       <div
         onClick={() => {
+            dispatch(loadHandler(true))
           setSelectedStock(stock);
           setIsSuggestion(false);
+          setTimeout(()=>{ dispatch(loadHandler(false))},1000)
         }}
         className="details__div"
       >
