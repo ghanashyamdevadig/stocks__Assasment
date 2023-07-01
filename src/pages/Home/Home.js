@@ -91,7 +91,7 @@ export default function Home() {
               ? selectedStock["Time Series (5min)"]
               : {}
           }
-          stockName={stockInfo["Meta Data"]["2. Symbol"]}
+          stockName={stockInfo["Meta Data"] && (stockInfo["Meta Data"]["2. Symbol"]?stockInfo["Meta Data"]["2. Symbol"] :[])}
         />
       
       )}
