@@ -3,11 +3,12 @@ import Logo from "../../assets/stocksLogo.jpg";
 import "./Header.css"
 import { useNavigate } from "react-router-dom";
 
-export default function Header() {
+export default function Header({setIsSuggestion}) {
     const navigate = useNavigate();
 
     const navigator=()=>{
         navigate("/");
+        setIsSuggestion(false)
        }
     
   return (

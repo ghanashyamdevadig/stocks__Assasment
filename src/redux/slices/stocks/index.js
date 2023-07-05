@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 export const stockSlicer = createSlice({
   initialState: {
-    data: {},
+    data: [],
     wishlist: [],
     loding: false,
    
@@ -10,7 +10,7 @@ export const stockSlicer = createSlice({
   name: "stock",
   reducers: {
     stockdata: (state, action) => {
-      state.data = action.payload;
+      state.data =action.payload;
     },
     wishlistdata: (state, action) => {
       let temp = [...state.wishlist];
@@ -32,10 +32,9 @@ export const { stockdata, wishlistdata, wishlistFilter, pageLoader } =
 
 export const getStockData = (symbol) => async (dispatch) => {
  
-  const apiKey = "Y4KPDJET3EDVC856";
-  const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${apiKey}`;
+  const url = `https://dev.portal.tradebrains.in/api/search?keyword=${symbol}`
   const response = await axios.get(url);
-  console.log(response, "after call");
+  console.log(response.data, "after call");
   dispatch(stockdata(response.data));
   
 };
@@ -46,10 +45,10 @@ export const setWhislist = (data) => async (dispatch) => {
   setTimeout(()=>{ dispatch(loadHandler(false))},2000)
 };
 
-export const wishlistHandler = (data, type) => async (dispatch) => {
+export const wishlistHandler = (wishlist,data) => async (dispatch) => {
   dispatch(loadHandler(true))
-  let stock = data?.filter((item, index) => {
-    return item.stockinfo !== type;
+  let stock = wishlist?.filter((item, index) => {
+    return item.symbol !== data;
   });
   console.log(stock, "hey");
   dispatch(wishlistFilter(stock));
